@@ -12,9 +12,25 @@ class Tooltip extends HTMLElement {
           position: absolute;
           z-index: 10;
         }
+
+        :host {
+          background-color: lightgray;
+        }
+
+        ::slotted(.highlight) {
+          border-bottom: 1px dotted red;
+        }
+
+        .icon {
+          background: black;
+          color: white;
+          padding; 0.15rem 0.5rem;
+          text-align: center;
+          border-radius: 60%;
+        }
       </style>
       <slot>Some default</slot>
-      <span> (?)</span>
+      <span class="icon">?</span>
     `;
   }
 
