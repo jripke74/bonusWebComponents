@@ -2,6 +2,7 @@ class Modal extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+    this.isOpen = false;
     this.shadowRoot.innerHTML = `
       <style>
         #backdrop {
@@ -64,7 +65,7 @@ class Modal extends HTMLElement {
       <div id="backdrop"></div>
       <div id="modal">
         <header>
-          <h1>Please Confirm</h1>
+          <slot name="title">Please confirm payment</slot>
         </header>
         <section id="main">
           <slot></slot>
@@ -78,19 +79,24 @@ class Modal extends HTMLElement {
   }
 
   // attributeChangedCallback(name, oldValue, newValue) {
-    // if (name === 'opened') {
-    //   if (this.hasAttribute('opened')) {
-    //     this.shadowRoot.querySelector('#backdrop').style.opacity = 1;
-    //     this.shadowRoot.querySelector('#backdrop').style.pointerEvents = 'all';
-    //     this.shadowRoot.querySelector('#modal').style.opacity = 1;
-    //     this.shadowRoot.querySelector('#modal').style.pointerEvents = 'all';
-    //   }
-    // }
+  //   if (name === 'opened') {
+  //     if (this.hasAttribute('opened')) {
+  //       this.shadowRoot.querySelector('#backdrop').style.opacity = 1;
+  //       this.shadowRoot.querySelector('#backdrop').style.pointerEvents = 'all';
+  //       this.shadowRoot.querySelector('#modal').style.opacity = 1;
+  //       this.shadowRoot.querySelector('#modal').style.pointerEvents = 'all';
+  //     }
+  //   }
   // }
 
   // static get observedAttributes() {
   //   return ['opened'];
   // }
+
+  open() {
+    this.setAttribute('opened', '');
+    this.isOpen = true;
+  }
 }
 
 customElements.define('uc-modal', Modal);
