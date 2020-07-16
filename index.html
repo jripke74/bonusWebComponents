@@ -5,22 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Components</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       html {
         --color-primary: #a4e6fc;
+        font-family: sans-serif;
       }
-
-      div {
-        border: 2px solid orange;
-      }
-
-      uc-tooltip {
-        border: 1px solid blue;
-        padding: 0.15rem;
-      }
-
-      /* .highlight {
-        background-color: #f7d28e;
-      } */
     </style>
     <script src="tooltip.js"></script>
     <script src="confirm-link.js"></script>
@@ -32,10 +24,7 @@
       >
       are awesome!
     </p>
-    <p><uc-tooltip></uc-tooltip></p>
-    <div>
-      <p>This is not part of shadow dom!</p>
-    </div>
+    <uc-tooltip></uc-tooltip>
     <a is="uc-confirm-link" href="https://www.google.com">Google</a>
   </body>
 </html>
